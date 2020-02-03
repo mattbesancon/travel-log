@@ -10,6 +10,18 @@ app.use(cors({
   origin: 'http://localhost:3000',
 }));
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Hello World',
+  });
+});
+
+app.use((req, res, next) => {
+  const error = new Error(`Not found - ${req.originalUrl}`;
+  res.status(404);
+  next(error);
+});
+
 const port = process.env.PORT || 1337;
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
