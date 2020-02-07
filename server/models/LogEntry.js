@@ -23,6 +23,10 @@ const logEntrySchema = new Schema({
   longitude: {
     type: Number,
     required: true,
+  },
+  visitDate: {
+    type: Date,
+    required: true,
   }, {
   timestamps: true,
 });
