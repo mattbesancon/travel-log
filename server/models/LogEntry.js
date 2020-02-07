@@ -16,22 +16,14 @@ const logEntrySchema = new Schema({
     default: 0,
   },
   image: String,
-  latitude : {
+  latitude: {
     type: Number,
     required: true,
   },
-  longitude : {
+  longitude: {
     type: Number,
     required: true,
   },
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now },
 });
-
-* Title -- Text
-* Description -- Text
-* Comments -- Text
-* Rating -- scale of 1 to 10
-* Image -- Text -- URL
-* Latitude -- Number
-* Longitude -- Number
-* Created at -- Datetime
-* Updated at -- Datetime
