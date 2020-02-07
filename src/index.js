@@ -3,12 +3,19 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 const middlewares = require('./middlewares');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
+
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+});
 
 const app = express();
 app.use(morgan('common'));
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.CORS_ORIGIN,
 }));
 
 app.get('/', (req, res) => {
@@ -20,7 +27,7 @@ app.get('/', (req, res) => {
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler;
 
-const port = process.env.PORT || 1337;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
