@@ -24,7 +24,6 @@ app.use('/api/logs', logs);
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 
-
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello World',
@@ -35,3 +34,5 @@ const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
+
+app.use(express.json());
