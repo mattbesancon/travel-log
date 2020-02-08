@@ -19,9 +19,10 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN,
 }));
+app.use('/api/logs', logs);
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
-app.use('/api/logs', logs);
+
 
 app.get('/', (req, res) => {
   res.json({
