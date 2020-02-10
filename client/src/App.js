@@ -6,8 +6,8 @@ const App = () => {
     width: '100vw',
     height: '100vh',
     latitude: 37.7577,
-    longitude: -122.4376,
-    zoom: 8
+    longitude: -95.6666,
+    zoom: 3
   });
 
   return (
