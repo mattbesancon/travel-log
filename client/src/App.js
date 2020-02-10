@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
+
+import { listLogEntries } from './API';
 
 const App = () => {
   const [viewport, setViewport] = useState({
@@ -9,6 +11,10 @@ const App = () => {
     longitude: -95.6666,
     zoom: 3
   });
+
+  useEffect(() => {
+    listLogEntries();
+  }, []);
 
   return (
     <ReactMapGL
