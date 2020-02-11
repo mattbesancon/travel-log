@@ -13,7 +13,10 @@ const App = () => {
   });
 
   useEffect(() => {
-    listLogEntries();
+    (async () => {
+      const logEntries = await listLogEntries();
+      console.log(logEntries);
+    })();
   }, []);
 
   return (
@@ -26,4 +29,3 @@ const App = () => {
 }
 
 export default App;
-
